@@ -34,12 +34,13 @@ func main() {
 
 	for i := 0; i < games; i++ {
 		// new game
-		var dollars int
+		rolls := 0
 		done := false
 		found := false
 
 		for !done {
 			n := rand.Intn(6) + 1
+			rolls++
 			if found && n == second {
 				done = true
 				continue
@@ -48,10 +49,9 @@ func main() {
 			if n == second {
 				found = true
 			}
-			dollars += n
 		}
 
-		gameSum += float64(dollars)
+		gameSum += float64(rolls)
 	}
 
 	fmt.Printf("Mean fee %.02f\n", gameSum/float64(games))
