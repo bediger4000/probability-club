@@ -60,6 +60,20 @@ I think this verifies that my program gives the correct answer.
 Looks like Alice could play either game,
 and on average pay a $42 membership fee.
 
+## Interview Analysis
+
+I'm not sure this merits a "Hard" rating.
+The only thing that's weird is keeping track of whether the last roll was a 5 or not.
+I'd give it a "Medium" maybe.
+
+This seems like a problem statement that invites the candidate to ask questions.
+It's possible that the interviewer wanted to elicit the candidate's thought processes,
+which would be revealed in questions to the interviewer,
+rather than seeing actual coding.
+
+I think the candidate should ask questions.
+Just assuming probably gets you nowhere with interviewers that ask this question.
+
 ## Probability Distribution
 
 ![probability distribution](500.png)
