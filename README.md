@@ -44,4 +44,26 @@ it doesn't matter which game Alice chooses.
 A roll of 5, followed by a 6 is just as likely as a 5 followed by a 5.
 Each roll of a d6 has 1/6 chance of getting any given value.
 
+[My code](game.go)
 
+Since a series-of-rolls ending condition is a 1/6 event,
+followed by a 1/6 event, the probability of rolling twice
+is 1/6\*1/6 = 1/36 = 0.0277.
+That's almost exactly what my [distribution of rolls](distribution.go)
+program shows for proportion of 2-roll series in 500,000 iterations of
+the game.
+A 3-roll game shows up with a probability of about 0.0231 in my simulation.
+A 3-roll game happens if you don't roll a 5, then roll a 5, then roll a 6:
+5/6\*1/6\*1/6 = 0.02314.
+I think this verifies that my program gives the correct answer.
+
+Looks like Alice could play either game,
+and on average pay a $42 membership fee.
+
+## Probability Distribution
+
+![probability distribution](500.png)
+
+This is the results from a 500,000 game simulation.
+Image generated with [gnuplot](http://gnuplot.info/) and a [script](mkdist).
+The longest game was 554 rolls. Poor Alice.
