@@ -30,6 +30,11 @@ func main() {
 
 	rand.Seed(time.Now().UnixNano() + int64(os.Getpid()))
 
+	pipCount := make(map[int]int)
+	for pips := 1; pips <= 6; pips++ {
+		pipCount[pips] = 0
+	}
+
 	var totalRolls float64
 
 	for i := 0; i < games; i++ {
@@ -39,6 +44,7 @@ func main() {
 
 		for {
 			n := rand.Intn(6) + 1
+			pipCount[n]++
 			rolls++
 			if n == second && previous == first {
 				break
@@ -50,4 +56,13 @@ func main() {
 	}
 
 	fmt.Printf("Mean fee %.02f\n", totalRolls/float64(games))
+
+	rollCount := 0
+	fmt.Printf("Check pip count distribution\n")
+	for pips := 1; pips <= 6; pips++ {
+		fmt.Printf("roll a %d\t%d times\n", pips, pipCount[pips])
+		rollCount += pipCount[pips]
+	}
+	fmt.Printf("%d total rolls\n", rollCount)
+
 }
