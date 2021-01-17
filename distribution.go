@@ -34,24 +34,24 @@ func main() {
 	var gameSum float64
 
 	distribution := make(map[int]int)
+	pipCount := make(map[int]int)
+	for pips := 1; pips <= 6; pips++ {
+		pipCount[pips] = 0
+	}
 
 	for i := 0; i < games; i++ {
 		// new game
 		rolls := 0
-		done := false
-		found := false
+		previous := 0
 
-		for !done {
+		for {
 			n := rand.Intn(6) + 1
+			pipCount[n]++
 			rolls++
-			if found && n == second {
-				done = true
-				continue
+			if n == second && previous == first {
+				break
 			}
-			found = false
-			if n == second {
-				found = true
-			}
+			previous = n
 		}
 
 		distribution[rolls]++
@@ -59,6 +59,10 @@ func main() {
 	}
 
 	fmt.Printf("# Mean fee %.02f\n", gameSum/float64(games))
+
+	for pips := 1; pips <= 6; pips++ {
+		fmt.Printf("# roll %d\t%d\n", pips, pipCount[pips])
+	}
 
 	var rolls []int
 	for roll, _ := range distribution {
