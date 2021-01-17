@@ -18,14 +18,35 @@ Write a program to simulate the two games and calculate their expected value.
 
 ## Build and Run
 
+I wrote a single program that generalizes the games.
+The program simulates rolls of a D6 die,
+letting the user set number of simulated games,
+and which values of a roll and subsequent roll constitute the end of a game.
+
 ```sh
 $ go build game.go
 $ ./game 100000 5 6
 Playing 100000 games, until 5 followed by 6
-Mean fee 42.06
+Mean fee 36.00
+Check pip count distribution
+roll a 1        600712 times
+roll a 2        598860 times
+roll a 3        600280 times
+roll a 4        600017 times
+roll a 5        599290 times
+roll a 6        600686 times
+3599845 total rolls
 $ ./game 100000 5 5
 Playing 100000 games, until 5 followed by 5
-Mean fee 42.00
+Mean fee 42.25
+Check pip count distribution
+roll a 1        705916 times
+roll a 2        704133 times
+roll a 3        703648 times
+roll a 4        705058 times
+roll a 5        702122 times
+roll a 6        704063 times
+4224940 total rolls
 ```
 
 ## Analysis
@@ -38,27 +59,15 @@ I'm assuming a 6-sided die.
 That is, are the last 2 rolls included in the number of rolls?
 I assumed they are, so Alice pays a minimum of $2,
 but the way the problem is worded it could be 0, $1 or $2.
-
-Since rolls of a die are pretty much independent,
-it doesn't matter which game Alice chooses.
-A roll of 5, followed by a 6 is just as likely as a 5 followed by a 5.
-Each roll of a d6 has 1/6 chance of getting any given value.
+* How often are dues collected? Yearly? Monthly?
 
 [My code](game.go)
 
-Since a series-of-rolls ending condition is a 1/6 event,
-followed by a 1/6 event, the probability of rolling twice
-is 1/6\*1/6 = 1/36 = 0.0277.
-That's almost exactly what my [distribution of rolls](distribution.go)
-program shows for proportion of 2-roll series in 500,000 iterations of
-the game.
-A 3-roll game shows up with a probability of about 0.0231 in my simulation.
-A 3-roll game happens if you don't roll a 5, then roll a 5, then roll a 6:
-5/6\*1/6\*1/6 = 0.02314.
-I think this verifies that my program gives the correct answer.
+The game simulator consistently gives a 5:6 game as the cheapest,
+averaging $36 as the Probability Club dues.
+A 5:5 game would cost Alice about $42.25 in dues.
 
-Looks like Alice could play either game,
-and on average pay a $42 membership fee.
+I do not know why this is.
 
 ## Interview Analysis
 
@@ -74,10 +83,14 @@ rather than seeing actual coding.
 I think the candidate should ask questions.
 Just assuming probably gets you nowhere with interviewers that ask this question.
 
+I personally find the probability calculations for this game very challenging.
+It's easy to simulate than it is to determine the choice of game analytically.
+
 ## Probability Distribution
 
 ![probability distribution](500.png)
 
-This is the results from a 500,000 game simulation.
+This is the results from a 500,000 game simulation,
+where each game ends with a 5 roll, followed by a 6 roll.
 Image generated with [gnuplot](http://gnuplot.info/) and a [script](mkdist).
 The longest game was 554 rolls. Poor Alice.
