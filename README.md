@@ -95,3 +95,39 @@ one for the 5:6 game and another for the 5:5 game.
 Image generated with [gnuplot](http://gnuplot.info/) and a [script](mkdist).
 The longest games are above 500 rolls.
 Poor Alice, that's high dues for a school club.
+
+I wrote a [program](combo2.go)
+to iterate through all possible combinations of N rolls of a D6.
+I did this in an effort to understand the probability distributions.
+
+I ran the program iterating through all rolls up to 10, 60466176 (6<sup>10</sup>)combinations
+
+#### 5:6 game
+
+|Roll count  | game count | game proportion |
+|------------|-----------:|--------:|
+|2|1679616|0.027778|
+|3|1679616|0.027778|
+|4|1632960|0.027006|
+|5|1586304|0.026235|
+|6|1540944|0.025484|
+|7|1496880|0.024756|
+|8|1454076|0.024048|
+|9|1412496|0.023360|
+|10|1372105|0.022692|
+
+#### 5:5 game
+
+|Roll count  | game count | game proportion |
+|------------|-----------:|--------:|
+|2|1679616|0.027778|
+|3|1399680|0.023148|
+|4|1399680|0.023148|
+|5|1360800|0.022505|
+|6|1328400|0.021969|
+|7|1296000|0.021433|
+|8|1264500|0.020913|
+|9|1233750|0.020404|
+|10|1203750|0.019908|
+
+These are extremely close to the probablistic game simulations.
