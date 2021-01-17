@@ -65,7 +65,7 @@ but the way the problem is worded it could be 0, $1 or $2.
 
 The game simulator consistently gives a 5:6 game as the cheapest,
 averaging $36 as the Probability Club dues.
-A 5:5 game would cost Alice about $42.25 in dues.
+A 5:5 game would cost Alice about $42 in dues.
 
 I do not know why this is.
 
@@ -90,7 +90,8 @@ It's easy to simulate than it is to determine the choice of game analytically.
 
 ![probability distribution](500.png)
 
-This is the results from a 500,000 game simulation,
-where each game ends with a 5 roll, followed by a 6 roll.
+This is the results from two 500,000 game simulation,
+one for the 5:6 game and another for the 5:5 game.
 Image generated with [gnuplot](http://gnuplot.info/) and a [script](mkdist).
-The longest game was 554 rolls. Poor Alice.
+The longest games are above 500 rolls.
+Poor Alice, that's high dues for a school club.
