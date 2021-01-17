@@ -30,29 +30,24 @@ func main() {
 
 	rand.Seed(time.Now().UnixNano() + int64(os.Getpid()))
 
-	var gameSum float64
+	var totalRolls float64
 
 	for i := 0; i < games; i++ {
 		// new game
 		rolls := 0
-		done := false
-		found := false
+		previous := 0
 
-		for !done {
+		for {
 			n := rand.Intn(6) + 1
 			rolls++
-			if found && n == second {
-				done = true
-				continue
+			if n == second && previous == first {
+				break
 			}
-			found = false
-			if n == second {
-				found = true
-			}
+			previous = n
 		}
 
-		gameSum += float64(rolls)
+		totalRolls += float64(rolls)
 	}
 
-	fmt.Printf("Mean fee %.02f\n", gameSum/float64(games))
+	fmt.Printf("Mean fee %.02f\n", totalRolls/float64(games))
 }
