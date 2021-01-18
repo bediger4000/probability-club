@@ -66,8 +66,12 @@ but the way the problem is worded it could be 0, $1 or $2.
 The game simulator consistently gives a 5:6 game as the cheapest,
 averaging $36 as the Probability Club dues.
 A 5:5 game would cost Alice about $42 in dues.
+Corresponding median fees are $25.00 and $29.00.
 
-I do not know why this is.
+I do not know why this is,
+but it looks like Alice should choose the 5:6 game to probably get the
+lowest Probability Club dues,
+but look further down at the probability distribution.
 
 ## Interview Analysis
 
@@ -95,6 +99,13 @@ one for the 5:6 game and another for the 5:5 game.
 Image generated with [gnuplot](http://gnuplot.info/) and a [script](mkdist).
 The longest games are above 500 rolls.
 Poor Alice, that's high dues for a school club.
+
+Also note that for up to about 50 rolls,
+Alice would pay less if she played the 5:5 game,
+rather than the 5:6 game,
+which is contrary to the mean and median indicators calculated above.
+Given that the median number of rolls is 25 or 29,
+maybe Alice should choose the 5:5 game over the 5:6 game.
 
 I wrote a [program](combo2.go)
 to iterate through all possible combinations of N rolls of a D6.
@@ -131,3 +142,15 @@ I ran the program iterating through all rolls up to 10, 60466176 (6<sup>10</sup>
 |10|1203750|0.019908|
 
 These are extremely close to the probablistic game simulations.
+
+The 2-roll probablity is 1/36 = 0.027778 for both 5:5 and 5:6 games.
+This makes sense, as 2 rolls are indendent of each other:
+a 5 followed by another 5 is exactly the same as a 5 followed by a 6.
+
+The 3-roll probability for the 5:6 game makes sense:
+rolling any number on the first roll doesn't effect the next two rolls,
+and you have to roll a 5, then a 6 to terminate the game.
+
+The 3-roll probability for the 5:5 game is a little less obvious.
+You can roll a 5 on the first roll, and a 5 on the second
+roll, so 1/6 of the possible 3-rolls win at 2-rolls.
