@@ -39,6 +39,8 @@ func main() {
 		pipCount[pips] = 0
 	}
 
+	var record []int
+
 	for i := 0; i < games; i++ {
 		// new game
 		rolls := 0
@@ -54,11 +56,22 @@ func main() {
 			previous = n
 		}
 
+		record = append(record, rolls)
 		distribution[rolls]++
 		gameSum += float64(rolls)
 	}
 
 	fmt.Printf("# Mean fee %.02f\n", gameSum/float64(games))
+
+	sort.Sort(sort.IntSlice(record))
+
+	medianRolls := 0.0
+	if (games % 2) == 1 {
+		medianRolls = float64(record[games/2])
+	} else {
+		medianRolls = float64(record[games/2]+record[games/2+1]) / 2.0
+	}
+	fmt.Printf("# Median fee %.02f\n", medianRolls)
 
 	for pips := 1; pips <= 6; pips++ {
 		fmt.Printf("# roll %d\t%d\n", pips, pipCount[pips])
