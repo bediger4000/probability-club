@@ -101,11 +101,13 @@ The longest games are above 500 rolls.
 Poor Alice, that's high dues for a school club.
 
 Also note that for up to about 50 rolls,
-Alice would pay less if she played the 5:5 game,
+Alice would usually pay less if she played the 5:5 game,
 rather than the 5:6 game,
 which is contrary to the mean and median indicators calculated above.
 Given that the median number of rolls is 25 or 29,
 maybe Alice should choose the 5:5 game over the 5:6 game.
+But no, the game doesn't terminate at 50 rolls,
+every once in a while Alice does about 500 rolls.
 
 I wrote a [program](combo2.go)
 to iterate through all possible combinations of N rolls of a D6.
@@ -154,3 +156,5 @@ and you have to roll a 5, then a 6 to terminate the game.
 The 3-roll probability for the 5:5 game is a little less obvious.
 You can roll a 5 on the first roll, and a 5 on the second
 roll, so 1/6 of the possible 3-rolls win at 2-rolls.
+Probability calculations are one of my weak spots,
+so I don't know whoat to do with this.
