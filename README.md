@@ -158,3 +158,8 @@ You can roll a 5 on the first roll, and a 5 on the second
 roll, so 1/6 of the possible 3-rolls win at 2-rolls.
 Probability calculations are one of my weak spots,
 so I don't know whoat to do with this.
+
+## Around the Web
+
+* [stackexchange](https://stats.stackexchange.com/questions/428386/expected-amount-of-dice-tosses-in-two-games)
+* [reddit](https://www.reddit.com/r/slatestarcodex/comments/73nvur/a_dead_simple_probability_puzzle_that_you_will/)
