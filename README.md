@@ -88,7 +88,7 @@ I think the candidate should ask questions.
 Just assuming probably gets you nowhere with interviewers that ask this question.
 
 I personally find the probability calculations for this game very challenging.
-It's easy to simulate than it is to determine the choice of game analytically.
+It's easier to simulate than it is to determine the choice of game analytically.
 
 ## Probability Distribution
 
@@ -100,14 +100,9 @@ Image generated with [gnuplot](http://gnuplot.info/) and a [script](mkdist).
 The longest games are above 500 rolls.
 Poor Alice, that's high dues for a school club.
 
-Also note that for up to about 50 rolls,
-Alice would usually pay less if she played the 5:5 game,
-rather than the 5:6 game,
-which is contrary to the mean and median indicators calculated above.
-Given that the median number of rolls is 25 or 29,
-maybe Alice should choose the 5:5 game over the 5:6 game.
-But no, the game doesn't terminate at 50 rolls,
-every once in a while Alice does about 500 rolls.
+You can see why the 5:5 game is costlier:
+the proportion of games ending in lower numer of rolls is
+lower for the 5:5 game up to about 50-roll games.
 
 I wrote a [program](combo2.go)
 to iterate through all possible combinations of N rolls of a D6.
