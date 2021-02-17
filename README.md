@@ -77,12 +77,11 @@ but look further down at the probability distribution.
 
 I'm not sure this merits a "Hard" rating.
 The only thing that's weird is keeping track of whether the last roll was a 5 or not.
-I'd give it a "Medium" maybe.
+I'd give it a "Medium", maybe, for the programming involved.
 
 This seems like a problem statement that invites the candidate to ask questions.
 It's possible that the interviewer wanted to elicit the candidate's thought processes,
-which would be revealed in questions to the interviewer,
-rather than seeing actual coding.
+which would be revealed in questions to the interviewer.
 
 I think the candidate should ask questions.
 Just assuming probably gets you nowhere with interviewers that ask this question.
@@ -152,7 +151,7 @@ The 3-roll probability for the 5:5 game is a little less obvious.
 You can roll a 5 on the first roll, and a 5 on the second
 roll, so 1/6 of the possible 3-rolls win at 2-rolls.
 Probability calculations are one of my weak spots,
-so I don't know whoat to do with this.
+so I don't know what to do with this.
 
 ## Around the Web
 
